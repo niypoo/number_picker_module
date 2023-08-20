@@ -358,13 +358,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-  ruler_picker:
-    dependency: "direct main"
-    description:
-      path: "../../../../modules/ruler_picker"
-      relative: true
-    source: path
-    version: "1.0.0+1"
   rxdart:
     dependency: transitive
     description:

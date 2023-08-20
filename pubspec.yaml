@@ -16,8 +16,8 @@ dependencies:
     git: https://github.com/niypoo/fly_ui.git
   app_configuration_service:
     git: https://github.com/niypoo/app_configuration_service.git
-  ruler_picker:
-    path: ../../../../modules/ruler_picker
+  # ruler_picker:
+  #   path: ../../../../modules/ruler_picker
   bottom_sheet_helper:
     git: https://github.com/niypoo/bottom_sheet_helper.git
 

@@ -1,7 +1,7 @@
 import 'package:bottom_sheet_helper/services/customBottomSheet.helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ruler_picker/rulerPicker.dart';
+// import 'package:ruler_picker/rulerPicker.dart';
 
 import 'models/numberPicker.model.dart';
 import 'widgets/valueManul.widget.dart';
@@ -11,7 +11,7 @@ class NumberPickerController extends GetxController {
   static NumberPickerController get to => Get.find();
 
   // properties
-  final RulerPickerController rulerController = RulerPickerController();
+  // final RulerPickerController rulerController = RulerPickerController();
 
   // read init data from arguments
   final NumberPicker? initData = Get.arguments;
@@ -44,7 +44,7 @@ class NumberPickerController extends GetxController {
   void onClose() {
     // reset system Ui
     // ThemeController.to.setSystemUI();
-    rulerController.dispose();
+    // rulerController.dispose();
     valueManualController.dispose();
     super.onClose();
   }
@@ -52,13 +52,13 @@ class NumberPickerController extends GetxController {
   void incrementTap() {
     value.value = roundDoubleNumber(
         value.value + (initData!.fractionDigits == 0 ? 1.0 : 0.1));
-    rulerController.value = value.value;
+    // rulerController.value = value.value;
   }
 
   void decrementTap() {
     value.value = roundDoubleNumber(
         value.value - (initData!.fractionDigits == 0 ? 1.0 : 0.1));
-    rulerController.value = value.value;
+    // rulerController.value = value.value;
   }
 
   roundDoubleNumber(double number) {
@@ -106,7 +106,7 @@ class NumberPickerController extends GetxController {
     // convert to num
     final num valueAsNum = num.parse(valueManualController.text);
 
-    rulerController.value = valueAsNum;
+    // rulerController.value = valueAsNum;
 
     close();
   }

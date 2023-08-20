@@ -6,7 +6,7 @@ import 'package:fly_ui/views/widgets/buttons/iconButton.widget.dart';
 import 'package:fly_ui/views/widgets/buttons/textButton.widget.dart';
 import 'package:get/get.dart';
 import 'package:number_picker_module/numberPicker.controller.dart';
-import 'package:ruler_picker/rulerPicker.dart';
+// import 'package:ruler_picker/rulerPicker.dart';
 import 'package:unicons/unicons.dart';
 
 class PageButtons extends GetView<NumberPickerController> {
@@ -51,26 +51,28 @@ class PageRule extends GetView<NumberPickerController> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: AppConfigService.to.space!.xl),
-      child: Directionality(
+      child: const Directionality(
         textDirection: TextDirection.ltr,
-        child: RulerPicker(
-          backgroundColor: Colors.transparent,
-          controller: controller.rulerController,
-          onValueChange: controller.onValueChange,
-          width: context.isLandscape ? context.height : context.width,
-          height: (context.isLandscape ? context.height : context.width) * 0.4,
-          initValue: controller.initData!.value.toDouble(),
-          fractionDigits: controller.initData!.fractionDigits,
-          color: Get.theme.cardColor,
-          lineColor: Get.iconColor!,
-          marker: SizedBox(
-            height: (Get.width * 0.3) * 0.8,
-            child: VerticalDivider(
-              color: Get.theme.primaryColor,
-              thickness: 2,
-            ),
-          ),
-        ),
+        child: SizedBox(),
+
+        // RulerPicker(
+        //   backgroundColor: Colors.transparent,
+        //   controller: controller.rulerController,
+        //   onValueChange: controller.onValueChange,
+        //   width: context.isLandscape ? context.height : context.width,
+        //   height: (context.isLandscape ? context.height : context.width) * 0.4,
+        //   initValue: controller.initData!.value.toDouble(),
+        //   fractionDigits: controller.initData!.fractionDigits,
+        //   color: Get.theme.cardColor,
+        //   lineColor: Get.iconColor!,
+        //   marker: SizedBox(
+        //     height: (Get.width * 0.3) * 0.8,
+        //     child: VerticalDivider(
+        //       color: Get.theme.primaryColor,
+        //       thickness: 2,
+        //     ),
+        //   ),
+        // ),
       ),
     );
   }
