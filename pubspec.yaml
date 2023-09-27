@@ -19,7 +19,8 @@ dependencies:
   # ruler_picker:
   #   path: ../../../../modules/ruler_picker
   bottom_sheet_helper:
-    git: https://github.com/niypoo/bottom_sheet_helper.git
+    git: 
+      url: git@github.com:niypoo/bottom_sheet_helper.git
 
 dev_dependencies:
   flutter_test:
