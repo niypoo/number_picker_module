@@ -1,30 +1,27 @@
 import 'package:bottom_sheet_helper/services/customBottomSheet.helper.dart';
+import 'package:calculator_module/widgets/calculatorManualValueField.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:ruler_picker/rulerPicker.dart';
 
 import 'models/numberPicker.model.dart';
-import 'widgets/valueManul.widget.dart';
 
 class NumberPickerController extends GetxController {
   // define
   static NumberPickerController get to => Get.find();
 
-  // properties
-  // final RulerPickerController rulerController = RulerPickerController();
-
   // read init data from arguments
-  final NumberPicker? initData = Get.arguments;
+  final NumberPicker initData = Get.arguments;
 
   // changes value
-  final RxNum value = RxNum(0.0);
+  final RxNum number = RxNum(0.0);
 
   final TextEditingController valueManualController = TextEditingController();
 
   @override
   void onInit() {
     // set value as controller rule
-    if (initData != null) value.value = initData!.value;
+    number.value = initData.value;
 
     super.onInit();
   }
@@ -32,33 +29,21 @@ class NumberPickerController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    // set system Ui
-    // if (initData != null)
-    //   ThemeController.to.setSystemUI(
-    //     systemNavigationBarColor: Get.theme.cardColor,
-    //     statusBarColor: Get.theme.cardColor,
-    //   );
   }
 
   @override
   void onClose() {
-    // reset system Ui
-    // ThemeController.to.setSystemUI();
-    // rulerController.dispose();
     valueManualController.dispose();
     super.onClose();
   }
 
-  void incrementTap() {
-    value.value = roundDoubleNumber(
-        value.value + (initData!.fractionDigits == 0 ? 1.0 : 0.1));
-    // rulerController.value = value.value;
+  void onCalculatorChange(double value) {
+    number.value = value;
   }
 
-  void decrementTap() {
-    value.value = roundDoubleNumber(
-        value.value - (initData!.fractionDigits == 0 ? 1.0 : 0.1));
-    // rulerController.value = value.value;
+  // when user tap on confirm
+  void save() {
+    Get.back(result: number.value);
   }
 
   roundDoubleNumber(double number) {
@@ -66,30 +51,25 @@ class NumberPickerController extends GetxController {
   }
 
   void onValueChange(num? newValue) {
-    value.value = newValue!;
+    number.value = newValue!;
   }
 
   // confirm back with number
-  void confirm() => Get.back(result: value.value);
+  void confirm() => Get.back(result: number.value);
 
   // close back with null
   void close() => Get.back();
 
-  // CHange Value By Soft Keyboard
-  // Chang value by manul
-
-  // change valueby manul by softkeypoard
-  Future<void> showValueManualSheet() async {
-    // Set curent value
+  // Change Scale by Soft Keyboard
+  Future<void> onOpenSoftKeyboard() async {
     //  set current value
-    valueManualController.text = value.value.toString();
+    valueManualController.text = number.value.toString();
 
-    // show bottom sheet
+    // Show bottom
     await CustomBottomSheetHelper.show(
-      title: initData!.title,
-      child: ChangeValueManual(
-        valueTextController: valueManualController,
-        label: initData!.label,
+      child: CalculatorManualValueFieldWidget(
+        controller: valueManualController,
+        label: initData.label,
         onConfirm: () => changeValueManual(),
         onReset: () => resetValueManual(),
       ),
@@ -101,14 +81,13 @@ class NumberPickerController extends GetxController {
     final String value = valueManualController.text;
 
     // Skip
-    if (value.isEmpty) return close();
+    if (value.isEmpty) return Get.back();
 
     // convert to num
-    final num valueAsNum = num.parse(valueManualController.text);
+    number.value = double.parse(valueManualController.text);
 
-    // rulerController.value = valueAsNum;
-
-    close();
+    // close sheet
+    Get.back();
   }
 
   void resetValueManual() => valueManualController.clear();

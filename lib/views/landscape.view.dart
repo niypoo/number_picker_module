@@ -1,39 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:fly_ui/views/layouts/landscapeView.widget.dart';
-import 'package:fly_ui/views/layouts/scaffoldPadding.widget.dart';
+import 'package:fly_ui/views/layouts/scaffoldLayout.widget.dart';
 import 'package:fly_ui/views/widgets/appBar.widget.dart';
 import 'package:get/get.dart';
-import 'package:number_picker_module/numberPicker.controller.dart';
-import 'package:number_picker_module/widgets/widgets.dart';
+import 'package:number_picker_module/widgets/InformationScreen.widget.dart';
+import 'package:number_picker_module/widgets/numbersPad.widget.dart';
 
-class LandscapeView extends GetView<NumberPickerController> {
-  const LandscapeView({
+class LandscapeLayout extends StatelessWidget {
+  const LandscapeLayout({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FlyLandscapeView(
-      childA: Column(
-        children: [
-          FlyScaffoldPadding(
-            child: FlyAppBar(
-              backgroundColor: Get.theme.cardColor,
-            ),
-          ),
-          const PageTitle(),
-          const PageNumber(),
-          const PageLabel(),
-          const EditValueManual(),
-        ],
+    return FlyScaffold(
+      appBar: FlyAppBar(
+        title: 'Food Scale'.tr,
       ),
-      childB: Column(
-        children: const [
-          // Rule
-          PageRule(),
-          // Confirm
-          PageButtons(),
-        ],
+      child: const FlyLandscapeView(
+        childB: Column(children: [Expanded(child: InformationScreen())]),
+        childA: Column(
+          children: [
+            Expanded(child: NumbersPad()),
+            SizedBox(height: 15),
+          ],
+        ),
       ),
     );
   }

@@ -4,9 +4,9 @@ import 'package:number_picker_module/numberPicker.binding.dart';
 import 'package:number_picker_module/numberPicker.view.dart';
 
 class NumberPickerHelper {
-  static Future<num?> open(NumberPicker initData) async => await Get.to(
+  static Future<num> open(NumberPicker initData) async => await Get.to(
         const NumberPickerView(),
         binding: NumberPickerBinding(),
         arguments: initData,
-      ) as num?;
+      ) as num;
 }

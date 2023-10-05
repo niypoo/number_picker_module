@@ -1,49 +1,31 @@
-import 'package:app_configuration_service/appInfo.config.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fly_ui/views/layouts/scaffoldLayout.widget.dart';
 import 'package:fly_ui/views/layouts/scaffoldPadding.widget.dart';
+import 'package:fly_ui/views/widgets/appBar.widget.dart';
 import 'package:get/get.dart';
-import 'package:number_picker_module/numberPicker.controller.dart';
-import 'package:number_picker_module/widgets/widgets.dart';
+import 'package:number_picker_module/widgets/InformationScreen.widget.dart';
+import 'package:number_picker_module/widgets/numbersPad.widget.dart';
 
-class PortraitView extends GetView<NumberPickerController> {
-  const PortraitView({
+class PortraitLayout extends StatelessWidget {
+  const PortraitLayout({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                // Top margin
-                SizedBox(height: AppConfigService.to.space!.m),
-
-                const FlyScaffoldPadding(
-                  child: Column(
-                    children: [
-                      PageTitle(),
-                      PageNumber(),
-                      PageLabel(),
-                      EditValueManual(),
-                    ],
-                  ),
-                ),
-
-                // Top margin
-                SizedBox(height: AppConfigService.to.space!.s),
-                // Rule
-                const PageRule(),
-              ],
-            ),
-          ),
+    return FlyScaffold(
+      appBar: FlyAppBar(
+        title: 'Food Scale'.tr,
+      ),
+      child: const FlyScaffoldPadding(
+        child: Column(
+          children: [
+            InformationScreen(),
+            Expanded(child: NumbersPad()),
+            SizedBox(height: 15),
+          ],
         ),
-        // Confirm
-        const PageButtons(),
-      ],
+      ),
     );
   }
 }
