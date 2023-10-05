@@ -2,7 +2,6 @@ import 'package:calculator_module/widgets/calculatorInformationScreen.widget.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:number_picker_module/numberPicker.controller.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 
 class InformationScreen extends GetView<NumberPickerController> {
   const InformationScreen({
@@ -19,12 +18,6 @@ class InformationScreen extends GetView<NumberPickerController> {
         // LABELs
         label: controller.initData.label,
 
-        // TITLE
-        title: AutoSizeText(
-          controller.initData.title,
-          style: Get.theme.textTheme.bodyLarge,
-          maxLines: 1,
-        ),
       ),
     );
   }
