@@ -37,7 +37,7 @@ class NumberPickerController extends GetxController {
     super.onClose();
   }
 
-  void onCalculatorChange(double value) {
+  void onCalculatorChange(num value) {
     number.value = value;
   }
 
