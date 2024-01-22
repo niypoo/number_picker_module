@@ -23,9 +23,9 @@ class NumberPickerController extends GetxController {
   final int fractionDigits;
 
   NumberPickerController({
-    this.decimalsAllowed = const [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-    this.maxLength = 9,
-    this.fractionDigits = 2,
+    required this.decimalsAllowed,
+    required this.maxLength ,
+    required this.fractionDigits ,
   });
 
   @override
