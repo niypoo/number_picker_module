@@ -12,7 +12,7 @@ class NumbersPad extends GetView<NumberPickerController> {
   Widget build(BuildContext context) {
     return Obx(
       () => CalculatorNumberBoardWidget(
-        initValue: controller.number.value.toDouble(),
+        initValue: controller.number.value,
         onChange: controller.onCalculatorChange,
         onSave: controller.save,
         decimalsAllowed: controller.decimalsAllowed,
