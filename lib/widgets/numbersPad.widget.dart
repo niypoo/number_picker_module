@@ -6,7 +6,6 @@ import 'package:number_picker_module/numberPicker.controller.dart';
 class NumbersPad extends GetView<NumberPickerController> {
   const NumbersPad({
     super.key,
-
   });
 
   @override
@@ -16,6 +15,9 @@ class NumbersPad extends GetView<NumberPickerController> {
         initValue: controller.number.value.toDouble(),
         onChange: controller.onCalculatorChange,
         onSave: controller.save,
+        decimalsAllowed: controller.decimalsAllowed,
+        maxLength: controller.maxLength,
+        fractionDigits: controller.fractionDigits,
       ),
     );
   }

@@ -18,6 +18,16 @@ class NumberPickerController extends GetxController {
 
   final TextEditingController valueManualController = TextEditingController();
 
+  final List<int> decimalsAllowed;
+  final int maxLength;
+  final int fractionDigits;
+
+  NumberPickerController({
+    this.decimalsAllowed = const [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+    this.maxLength = 9,
+    this.fractionDigits = 2,
+  });
+
   @override
   void onInit() {
     // set value as controller rule

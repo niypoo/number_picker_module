@@ -104,7 +104,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "5becbb805fd97918844dd62d408d27eb6bdb0a7e"
+      resolved-ref: "0c628179071c4f321788e8d0f4c85bb55a7a719b"
       url: "git@github.com:niypoo/calculator_module.git"
     source: git
     version: "1.0.0+1"
@@ -312,7 +312,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: c1633c9a1c5c88c77606d70742df099afd643373
+      resolved-ref: "0ea304ba72a2f2c88a1a8cfc8713896e01b9b0e1"
       url: "git@github.com:niypoo/fly_ui.git"
     source: git
     version: "1.0.0+1"
