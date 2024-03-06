@@ -11,7 +11,7 @@ class NumberPickerHelper {
     int fractionDigits = 2,
   }) async =>
       await Get.to(
-        const NumberPickerView(),
+        () => const NumberPickerView(),
         binding: NumberPickerBinding(
           decimalsAllowed: decimalsAllowed,
           maxLength: maxLength,
